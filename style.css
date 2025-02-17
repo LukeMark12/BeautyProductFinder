@@ -290,3 +290,282 @@ nav li:hover .dropdown-content {
         grid-template-columns: 1fr; /* Single column on smaller screens */
     }
 }
+
+
+/* style.css */
+
+/* Cart Icon */
+.cart-icon {
+    position: absolute; /* Or relative, depending on your layout */
+    top: 20px; /* Adjust as needed */
+    right: 20px; /* Adjust as needed */
+}
+
+.cart-icon img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.cart-icon span {
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+/* Cart Page */
+#cart-items {
+    display: flex;
+    flex-direction: column; /* Stack cart items vertically */
+    gap: 20px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center; /* Vertically align items */
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.cart-item img {
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+}
+
+.cart-item h3 {
+    margin-bottom: 5px;
+}
+
+.cart-item .price {
+    font-weight: bold;
+    margin-left: auto; /* Push price to the right */
+}
+
+#cart-total {
+    margin-top: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: right;
+}
+
+#checkout-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* style.css */
+#customer-info-form {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#customer-info-form button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+/* admin 
+
+/* style.css */
+#product-list {
+    display: grid; /* Or flexbox, as you prefer */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
+    gap: 20px;
+}
+
+.product-item {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.product-item img {
+    max-width: 100%;
+    height: auto;
+}
+
+#add-product-form .form-group {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#add-product-form button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+/* style.css */
+
+/* Basic Styles (apply to all screen sizes) */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+h1, h2 {
+    text-align: center; /* Center headings */
+}
+
+#product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust minmax as needed */
+    gap: 20px;
+}
+
+.product-item {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center; /* Center content within product items */
+}
+
+.product-item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+#add-product-form .form-group {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+textarea {
+    height: 120px; /* Set a reasonable height for the textarea */
+}
+
+#add-product-form button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%; /* Make button full width on smaller screens */
+    box-sizing: border-box;
+}
+
+/* Media Queries (for smaller screens) */
+@media (max-width: 768px) { /* Example breakpoint - adjust as needed */
+    #product-list {
+        grid-template-columns: 1fr; /* One column on smaller screens */
+    }
+
+    .product-item {
+        text-align: left; /* Align text to the left within product items */
+    }
+
+    #add-product-form button {
+        width: 100%; /* Ensure button is full width on smaller screens */
+    }
+}
+
+
+/* Optional: Add more media queries for different screen sizes */
+@media (max-width: 480px) { /* Example breakpoint - adjust as needed */
+    /* Styles for even smaller screens */
+    h1 {
+        font-size: 1.5em; /* Reduce heading size */
+    }
+    h2 {
+        font-size: 1.2em;
+    }
+}
+
+
+
+/* style.css */
+#order-list {
+    display: flex;
+    flex-direction: column; /* Stack orders vertically */
+    gap: 20px;
+}
+
+.order-item {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.order-item h3 {
+    margin-bottom: 10px;
+}
+
+.order-item p {
+    margin-bottom: 5px;
+}
+
+.order-item hr {
+    margin-top: 20px;
+}
+
+/* Responsive Styles (Optional) */
+@media (max-width: 768px) {
+    .order-item {
+        /* Styles for smaller screens */
+    }
+}

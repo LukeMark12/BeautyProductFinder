@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Management</title>
+    <link rel="stylesheet" href="style.css">  </head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="admin.html">Product Management</a></li>
+            <li><a href="order_product_admin.html">Order Management</a></li>
+        </ul>
+    </nav>
+
+    <h1>Order Management</h1>
+
+    <div id="order-list"></div>
+
+    <script>
+        const orderList = document.getElementById('order-list');
+
+        function displayOrders() {
+            if (typeof localStorage !== 'undefined') {
+                let orders = JSON.parse(localStorage.getItem('orders')) || [];
+
+                orderList.innerHTML = '';
+
+                if (orders.length === 0) {
+                    orderList.innerHTML = "<p>No orders found.</p>";
+                    return;
+                }
+
+                orders.forEach(order => {
+                    const orderDiv = document.createElement('div');
+                    orderDiv.classList.add('order-item');
+                    orderDiv.innerHTML = `
+                        <h3>Order ID: ${order.id || 'N/A'}</h3>
+                        <p>Customer Name: ${order.customer.name}</p>
+                        <p>Address: ${order.customer.address}, ${order.customer.city}, ${order.customer.state} ${order.customer.zip}</p>
+                        <p>Phone: ${order.customer.phone}</p>
+                        <p>Email: ${order.customer.email}</p>
+                        <h4>Items:</h4>
+                        <ul>
+                            ${order.items.map(item => `<li>${item.name} x ${item.quantity}</li>`).join('')}
+                        </ul>
+                        <p>Total: $${order.total}</p>
+                        <hr>
+                    `;
+                    orderList.appendChild(orderDiv);
+                });
+            } else {
+                orderList.innerHTML = "<p>Local Storage is not available. Cannot display orders.</p>";
+            }
+        }
+
+        displayOrders();
+    </script>
+
+</body>
+</html>

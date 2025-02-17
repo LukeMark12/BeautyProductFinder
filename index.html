@@ -17,6 +17,11 @@
                 <li><a href="#about-us">About Us</a></li>
             </ul>
         </nav>
+        <div class="cart-icon">
+            <a href="cart.html" id="cart-link">
+                <img src="carticon.png" alt="Cart"> <span id="cart-count">0</span>
+            </a>
+        </div>
     </header>
 
     <main>
@@ -41,7 +46,7 @@
                 <p>Information about dryness.</p>
                 <div class="product-list" id="product-list-dryness"></div>
             </div>
-            </section>
+        </section>
 
         <section id="product-categories">
             <h2>Product Categories</h2>
@@ -53,7 +58,7 @@
                 <h3>Moisturizers</h3>
                 <div class="product-list" id="product-list-moisturizers"></div>
             </div>
-            </section>
+        </section>
 
         <section id="age-appropriate">
             <h2>Skincare for Young Skin</h2>
@@ -72,192 +77,79 @@
     </footer>
 
     <script>
-        const products = [
-    {
-        id: '1',
-        name: "Hydrating Cleanser",
-        description: "A gentle cleanser for dry skin. This cleanser is formulated with...",
-        price: "$25.00",
-        images: ["../product1_main.jpg", "../product1_alt1.jpg", "../product1_alt2.jpg"],
-        ingredients: ["Water", "Glycerin", "Hyaluronic Acid", "Aloe Vera"],
-        variants: [
-            { size: "100ml", price: "$25.00" },
-            { size: "200ml", price: "$40.00" }
-        ],
-        concern: "Dryness", // Add concern
-        category: "Cleansers" // Add category
-    },
-    {
-        id: '2',
-        name: "Acne Control Serum",
-        description: "Helps to reduce acne and blemishes. Contains salicylic acid...",
-        price: "$30.00",
-        images: ["../product2_main.jpg", "../product2_alt1.jpg"],
-        ingredients: ["Salicylic Acid", "Tea Tree Oil", "Niacinamide"],
-        variants: [
-            { size: "30ml", price: "$30.00" },
-            { size: "50ml", price: "$45.00" }
-        ],
-        concern: "Acne", // Add concern
-        category: "Serums" // Add category
-    },
-    {
-        id: '3',
-        name: "Daily Moisturizer",
-        description: "Keeps skin hydrated all day long. Lightweight and non-greasy...",
-        price: "$28.00",
-        images: ["../product3_main.jpg"],
-        ingredients: ["Shea Butter", "Jojoba Oil", "Vitamin E"],
-        variants: [
-            { size: "50ml", price: "$28.00" },
-            { size: "100ml", price: "$50.00" }
-        ],
-        concern: "Dryness", // Add concern
-        category: "Moisturizers" // Add category
-    },
-    // ... (Add concern and category to all other products)
-    {
-        id: '4',
-        name: "Exfoliating Scrub",
-        description: "Gently removes dead skin cells and reveals brighter skin...",
-        price: "$22.00",
-        images: ["../product4_main.jpg", "../product4_alt1.jpg"],
-        ingredients: ["Sugar", "Coconut Oil", "Vitamin C"],
-        variants: [
-            { size: "150g", price: "$22.00" },
-            { size: "300g", price: "$38.00" }
-        ],
-        concern: "Dullness", // Example concern
-        category: "Scrubs" // Example category
-    },
-    {
-        id: '5',
-        name: "Sunscreen SPF 50",
-        description: "Broad spectrum protection from UVA and UVB rays. Water-resistant...",
-        price: "$20.00",
-        images: ["../product5_main.jpg"],
-        ingredients: ["Zinc Oxide", "Titanium Dioxide", "Aloe Vera"],
-        variants: [
-            { size: "50ml", price: "$20.00" },
-            { size: "100ml", price: "$35.00" }
-        ],
-        concern: "Sun Protection",
-        category: "Sunscreen"
-    },
-    {
-        id: '6',
-        name: "Night Cream",
-        description: "Nourishes and repairs your skin while you sleep. Rich and creamy...",
-        price: "$35.00",
-        images: ["../product6_main.jpg"],
-        ingredients: ["Retinol", "Collagen", "Hyaluronic Acid"],
-        variants: [
-            { size: "50ml", price: "$35.00" },
-            { size: "100ml", price: "$60.00" }
-        ],
-        concern: "Anti-Aging",
-        category: "Moisturizers"
-    },
-    {
-        id: '7',
-        name: "Face Mask - Clay",
-        description: "Deeply cleanses pores and removes impurities. For oily skin...",
-        price: "$18.00",
-        images: ["../product7_main.jpg", "../product7_alt1.jpg"],
-        ingredients: ["Kaolin Clay", "Bentonite Clay", "Activated Charcoal"],
-        variants: [
-            { size: "100g", price: "$18.00" },
-            { size: "200g", price: "$30.00" }
-        ],
-        concern: "Oil Control",
-        category: "Masks"
-    },
-    {
-        id: '8',
-        name: "Toner - Rosewater",
-        description: "Balances skin pH and hydrates. Made with natural rosewater...",
-        price: "$15.00",
-        images: ["../product8_main.jpg"],
-        ingredients: ["Rosewater", "Glycerin", "Aloe Vera"],
-        variants: [
-            { size: "100ml", price: "$15.00" },
-            { size: "200ml", price: "$25.00" }
-        ],
-        concern: "Hydration",
-        category: "Toners"
-    },
-    {
-        id: '9',
-        name: "Lip Balm - Mint",
-        description: "Keeps lips soft and hydrated. Refreshing mint flavor...",
-        price: "$5.00",
-        images: ["../product9_main.jpg"],
-        ingredients: ["Beeswax", "Shea Butter", "Peppermint Oil"],
-        variants: [
-            { size: "5g", price: "$5.00" },
-            { size: "10g", price: "$8.00" }
-        ],
-        concern: "Dry Lips",
-        category: "Lip Care"
-    },
-    {
-        id: '10',
-        name: "Eye Cream",
-        description: "Reduces dark circles and puffiness around the eyes...",
-        price: "$22.00",
-        images: ["../product10_main.jpg"],
-        ingredients: ["Retinol", "Vitamin K", "Hyaluronic Acid"],
-        variants: [
-            { size: "15ml", price: "$22.00" },
-            { size: "30ml", price: "$35.00" }
-        ],
-        concern: "Dark Circles",
-        category: "Eye Care"
-    }
-];
+        // Consolidated displayProducts function:
+        function displayProducts(productsToDisplay, containerId) {
+            const productList = document.getElementById(containerId);
+            productList.innerHTML = ""; // Clear existing products
 
+            productsToDisplay.forEach(product => {
+                const productDiv = document.createElement("div");
+                productDiv.classList.add("product");
+                productDiv.innerHTML = `
+                    <img src="${product.images ? product.images[0] : product.image}" alt="${product.name}">  <h3>${product.name}</h3>
+                    <p>${product.description}</p>
+                    <p class="price">${product.price}</p>
+                    <div class="ingredients">
+                        <h2>Ingredients</h2>
+                        <ul>
+                            ${product.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}
+                        </ul>
+                    </div>
+                    <button>Add to Cart</button>
+                `;
+                productList.appendChild(productDiv);
+            });
 
-function displayProducts(productsToDisplay, containerId) {
-    const productList = document.getElementById(containerId);
-    productList.innerHTML = ""; // Clear existing products
+            // Attach event listeners to "Add to Cart" buttons AFTER displaying products:
+            attachAddToCartListeners();
+        }
 
-    productsToDisplay.forEach(product => {
-        const productDiv = document.createElement("div");
-        productDiv.classList.add("product");
-        productDiv.innerHTML = `
-            <img src="${product.images[0]}" alt="${product.name}">
-            <h3>${product.name}</h3>
-            <p>${product.description}</p>
-            <p class="price">${product.price}</p>
-            <div class="ingredients">
-                <h2>Ingredients</h2>
-                <ul>
-                    ${product.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}
-                </ul>
-            </div>
-            <button>Add to Cart</button>
-        `;
-        productList.appendChild(productDiv);
-    });
-}
+        let products = JSON.parse(localStorage.getItem('products')) || [
+            // ... (Your product data here - same as before)
+        ];
 
-// Display products for different sections:
-const acneProducts = products.filter(product => product.concern === "Acne");
-displayProducts(acneProducts, "product-list-acne");
+        // Display products for different sections:
+        const acneProducts = products.filter(product => product.concern === "Acne");
+        displayProducts(acneProducts, "product-list-acne");
 
-const drynessProducts = products.filter(product => product.concern === "Dryness");
-displayProducts(drynessProducts, "product-list-dryness");
+        const drynessProducts = products.filter(product => product.concern === "Dryness");
+        displayProducts(drynessProducts, "product-list-dryness");
 
-const cleansers = products.filter(product => product.category === "Cleansers");
-displayProducts(cleansers, "product-list-cleansers");
+        const cleansers = products.filter(product => product.category === "Cleansers");
+        displayProducts(cleansers, "product-list-cleansers");
 
-const moisturizers = products.filter(product => product.category === "Moisturizers");
-displayProducts(moisturizers, "product-list-moisturizers");
+        const moisturizers = products.filter(product => product.category === "Moisturizers");
+        displayProducts(moisturizers, "product-list-moisturizers");
 
-// ... filter and display for other categories/concerns as needed
+        const youngSkinProducts = products.filter(product => product.concern === "Sun Protection" || product.concern === "Hydration" || product.category === "Sunscreen" || product.category === "Lip care"); // Example filter for young skin
+        displayProducts(youngSkinProducts, "product-list-young-skin");
 
-const youngSkinProducts = products.filter(product => product.concern === "Sun Protection" || product.concern === "Hydration" || product.category === "Sunscreen" || product.category === "Lip care"); // Example filter for young skin
-displayProducts(youngSkinProducts, "product-list-young-skin");
+        // ... (Add to cart functionality)
+        function addToCart(product) {
+          // ... (Your existing addToCart function)
+        }
+
+        // Attach event listeners to "Add to Cart" buttons
+        function attachAddToCartListeners() {
+            const productButtons = document.querySelectorAll('.product button');
+            productButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const productDiv = button.closest('.product');
+                    const productName = productDiv.querySelector('h3').textContent;
+                    const product = products.find(p => p.name === productName);
+                    if (product) {
+                      addToCart(product);
+                    }
+                });
+            });
+        }
+
+        function updateCartCount() {
+          // ... (Your existing updateCartCount function)
+        }
+
+        updateCartCount(); // Update cart count on page load
+
     </script>
 </body>
 </html>
