@@ -3,141 +3,261 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skincare Guide</title>
-    <link rel="stylesheet" href="style.css"> </head>
+    <title>Skincare Simplified</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
 <body>
     <header>
-        <h1>Skincare Simplified</h1>
         <nav>
             <ul>
-                <li><a href="#">Skin Concerns</a></li>
-                <li><a href="#">Product Categories</a></li>
-                <li><a href="#">Age-Appropriate Skincare</a></li>
-                <li><a href="#">About Us</a></li>
+                <li><a href="#skin-concerns">Skin Concerns</a></li>
+                <li><a href="#product-categories">Product Categories</a></li>
+                <li><a href="#age-appropriate">Age-Appropriate Skincare</a></li>
+                <li><a href="#about-us">About Us</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <section id="hero">
-            <h2>Find the Right Skincare for You</h2>
-            <p>Discover products and routines tailored to your specific skin concerns.</p>
+            <div class="hero-content">
+                <h2>Reveal Your Radiant Skin</h2>
+                <p>Discover personalized skincare solutions tailored to your unique needs.</p>
+                <a href="#skin-concerns" class="cta-button">Explore Products</a>
+            </div>
+        </section>
+
+        <section id="skin-concerns">
+            <h2>Explore Skin Concerns</h2>
+            <div class="concern-category">
+                <h3>Acne</h3>
+                <p>Information about acne.</p>
+                <div class="product-list" id="product-list-acne"></div>
+            </div>
+
+            <div class="concern-category">
+                <h3>Dryness</h3>
+                <p>Information about dryness.</p>
+                <div class="product-list" id="product-list-dryness"></div>
+            </div>
             </section>
 
-            <section id="skin-concerns">
-                <h2>Explore Skin Concerns</h2>
-            
-                <div class="concern-category">
-                    <h3>Acne</h3>
-                    <p>Information about acne.</p>
-                    <div class="product-list" id="product-list"> </div>  </div>
-            
-                <div class="concern-category">
-                    <h3>Dryness</h3>
-                    <p>Information about dryness.</p>
-                    <div class="product-list" id="dryness-products"> </div>  </div>
-            
+        <section id="product-categories">
+            <h2>Product Categories</h2>
+            <div class="category">
+                <h3>Cleansers</h3>
+                <div class="product-list" id="product-list-cleansers"></div>
+            </div>
+            <div class="category">
+                <h3>Moisturizers</h3>
+                <div class="product-list" id="product-list-moisturizers"></div>
+            </div>
             </section>
-            
-            <section id="product-categories">
-                <h2>Product Categories</h2>
-            
-                <div class="category">
-                    <h3>Cleansers</h3>
-                    <div class="product-list" id="cleanser-products"> </div>  </div>
-            
-            </section>
+
+        <section id="age-appropriate">
+            <h2>Skincare for Young Skin</h2>
+            <p>Gentle and effective routines for younger users.</p>
+            <div class="product-list" id="product-list-young-skin"></div>
+        </section>
+
+        <section id="about-us">
+            <h2>About Us</h2>
+            <p>Learn about our mission and commitment to providing high-quality skincare solutions.</p>
+        </section>
     </main>
 
     <footer>
-        <p>&copy; 2023 Skincare Guide</p>
+        <p>&copy; 2023 Skincare Simplified</p>
     </footer>
 
     <script>
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 0) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-    
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-    
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-    
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-
-        //product 
-        
-
         const products = [
-        {
-            image: "product1.jpg", // Replace with actual image URL
-            name: "Hydrating Cleanser",
-            description: "A gentle cleanser for dry skin.",
-            concern: "Dryness",
-            category: "Cleansers"
-        },
-        {
-            image: "product2.jpg", // Replace with actual image URL
-            name: "Acne Control Serum",
-            description: "Helps to reduce acne and blemishes.",
-            concern: "Acne",
-            category: "Serums"
-        },
-        {
-            image: "product3.jpg", // Replace with actual image URL
-            name: "Daily Moisturizer",
-            description: "Keeps skin hydrated all day long.",
-            concern: "Dryness",
-            category: "Moisturizers"
-        },
-        // Add more products here...
-    ];
-
-    // Function to display products
-    function displayProducts(productsToDisplay, containerId) {
-        const productList = document.getElementById(containerId);
-        productList.innerHTML = ""; // Clear existing products
-
-        productsToDisplay.forEach(product => {
-            const productDiv = document.createElement("div");
-            productDiv.classList.add("product");
-            productDiv.innerHTML = `
-                <img src="${product.image}" alt="${product.name}">
-                <h3>${product.name}</h3>
-                <p>${product.description}</p>
-                <button>Add to Cart</button>
-            `;
-            productList.appendChild(productDiv);
-        });
+    {
+        id: '1',
+        name: "Hydrating Cleanser",
+        description: "A gentle cleanser for dry skin. This cleanser is formulated with...",
+        price: "$25.00",
+        images: ["../product1_main.jpg", "../product1_alt1.jpg", "../product1_alt2.jpg"],
+        ingredients: ["Water", "Glycerin", "Hyaluronic Acid", "Aloe Vera"],
+        variants: [
+            { size: "100ml", price: "$25.00" },
+            { size: "200ml", price: "$40.00" }
+        ],
+        concern: "Dryness", // Add concern
+        category: "Cleansers" // Add category
+    },
+    {
+        id: '2',
+        name: "Acne Control Serum",
+        description: "Helps to reduce acne and blemishes. Contains salicylic acid...",
+        price: "$30.00",
+        images: ["../product2_main.jpg", "../product2_alt1.jpg"],
+        ingredients: ["Salicylic Acid", "Tea Tree Oil", "Niacinamide"],
+        variants: [
+            { size: "30ml", price: "$30.00" },
+            { size: "50ml", price: "$45.00" }
+        ],
+        concern: "Acne", // Add concern
+        category: "Serums" // Add category
+    },
+    {
+        id: '3',
+        name: "Daily Moisturizer",
+        description: "Keeps skin hydrated all day long. Lightweight and non-greasy...",
+        price: "$28.00",
+        images: ["../product3_main.jpg"],
+        ingredients: ["Shea Butter", "Jojoba Oil", "Vitamin E"],
+        variants: [
+            { size: "50ml", price: "$28.00" },
+            { size: "100ml", price: "$50.00" }
+        ],
+        concern: "Dryness", // Add concern
+        category: "Moisturizers" // Add category
+    },
+    // ... (Add concern and category to all other products)
+    {
+        id: '4',
+        name: "Exfoliating Scrub",
+        description: "Gently removes dead skin cells and reveals brighter skin...",
+        price: "$22.00",
+        images: ["../product4_main.jpg", "../product4_alt1.jpg"],
+        ingredients: ["Sugar", "Coconut Oil", "Vitamin C"],
+        variants: [
+            { size: "150g", price: "$22.00" },
+            { size: "300g", price: "$38.00" }
+        ],
+        concern: "Dullness", // Example concern
+        category: "Scrubs" // Example category
+    },
+    {
+        id: '5',
+        name: "Sunscreen SPF 50",
+        description: "Broad spectrum protection from UVA and UVB rays. Water-resistant...",
+        price: "$20.00",
+        images: ["../product5_main.jpg"],
+        ingredients: ["Zinc Oxide", "Titanium Dioxide", "Aloe Vera"],
+        variants: [
+            { size: "50ml", price: "$20.00" },
+            { size: "100ml", price: "$35.00" }
+        ],
+        concern: "Sun Protection",
+        category: "Sunscreen"
+    },
+    {
+        id: '6',
+        name: "Night Cream",
+        description: "Nourishes and repairs your skin while you sleep. Rich and creamy...",
+        price: "$35.00",
+        images: ["../product6_main.jpg"],
+        ingredients: ["Retinol", "Collagen", "Hyaluronic Acid"],
+        variants: [
+            { size: "50ml", price: "$35.00" },
+            { size: "100ml", price: "$60.00" }
+        ],
+        concern: "Anti-Aging",
+        category: "Moisturizers"
+    },
+    {
+        id: '7',
+        name: "Face Mask - Clay",
+        description: "Deeply cleanses pores and removes impurities. For oily skin...",
+        price: "$18.00",
+        images: ["../product7_main.jpg", "../product7_alt1.jpg"],
+        ingredients: ["Kaolin Clay", "Bentonite Clay", "Activated Charcoal"],
+        variants: [
+            { size: "100g", price: "$18.00" },
+            { size: "200g", price: "$30.00" }
+        ],
+        concern: "Oil Control",
+        category: "Masks"
+    },
+    {
+        id: '8',
+        name: "Toner - Rosewater",
+        description: "Balances skin pH and hydrates. Made with natural rosewater...",
+        price: "$15.00",
+        images: ["../product8_main.jpg"],
+        ingredients: ["Rosewater", "Glycerin", "Aloe Vera"],
+        variants: [
+            { size: "100ml", price: "$15.00" },
+            { size: "200ml", price: "$25.00" }
+        ],
+        concern: "Hydration",
+        category: "Toners"
+    },
+    {
+        id: '9',
+        name: "Lip Balm - Mint",
+        description: "Keeps lips soft and hydrated. Refreshing mint flavor...",
+        price: "$5.00",
+        images: ["../product9_main.jpg"],
+        ingredients: ["Beeswax", "Shea Butter", "Peppermint Oil"],
+        variants: [
+            { size: "5g", price: "$5.00" },
+            { size: "10g", price: "$8.00" }
+        ],
+        concern: "Dry Lips",
+        category: "Lip Care"
+    },
+    {
+        id: '10',
+        name: "Eye Cream",
+        description: "Reduces dark circles and puffiness around the eyes...",
+        price: "$22.00",
+        images: ["../product10_main.jpg"],
+        ingredients: ["Retinol", "Vitamin K", "Hyaluronic Acid"],
+        variants: [
+            { size: "15ml", price: "$22.00" },
+            { size: "30ml", price: "$35.00" }
+        ],
+        concern: "Dark Circles",
+        category: "Eye Care"
     }
+];
 
-    // Display initial products (e.g., all products or products for a specific concern)
-    displayProducts(products, "product-list"); // You'll need to call this function for each product list
 
-    // Example: Display products for "Dryness" concern
-    const drynessProducts = products.filter(product => product.concern === "Dryness");
-    displayProducts(drynessProducts, "dryness-products"); // Replace "dryness-products" with the correct ID
+function displayProducts(productsToDisplay, containerId) {
+    const productList = document.getElementById(containerId);
+    productList.innerHTML = ""; // Clear existing products
 
-    // Example: Display products for "Cleansers" category
-    const cleanserProducts = products.filter(product => product.category === "Cleansers");
-    displayProducts(cleanserProducts, "cleanser-products"); // Replace "cleanser-products" with the correct ID
+    productsToDisplay.forEach(product => {
+        const productDiv = document.createElement("div");
+        productDiv.classList.add("product");
+        productDiv.innerHTML = `
+            <img src="${product.images[0]}" alt="${product.name}">
+            <h3>${product.name}</h3>
+            <p>${product.description}</p>
+            <p class="price">${product.price}</p>
+            <div class="ingredients">
+                <h2>Ingredients</h2>
+                <ul>
+                    ${product.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}
+                </ul>
+            </div>
+            <button>Add to Cart</button>
+        `;
+        productList.appendChild(productDiv);
+    });
+}
 
+// Display products for different sections:
+const acneProducts = products.filter(product => product.concern === "Acne");
+displayProducts(acneProducts, "product-list-acne");
+
+const drynessProducts = products.filter(product => product.concern === "Dryness");
+displayProducts(drynessProducts, "product-list-dryness");
+
+const cleansers = products.filter(product => product.category === "Cleansers");
+displayProducts(cleansers, "product-list-cleansers");
+
+const moisturizers = products.filter(product => product.category === "Moisturizers");
+displayProducts(moisturizers, "product-list-moisturizers");
+
+// ... filter and display for other categories/concerns as needed
+
+const youngSkinProducts = products.filter(product => product.concern === "Sun Protection" || product.concern === "Hydration" || product.category === "Sunscreen" || product.category === "Lip care"); // Example filter for young skin
+displayProducts(youngSkinProducts, "product-list-young-skin");
     </script>
-
 </body>
 </html>
