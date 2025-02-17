@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skincare Guide</title>
+    <link rel="stylesheet" href="style.css"> </head>
+<body>
+    <header>
+        <h1>Skincare Simplified</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Skin Concerns</a></li>
+                <li><a href="#">Product Categories</a></li>
+                <li><a href="#">Age-Appropriate Skincare</a></li>
+                <li><a href="#">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <h2>Find the Right Skincare for You</h2>
+            <p>Discover products and routines tailored to your specific skin concerns.</p>
+            </section>
+
+            <section id="skin-concerns">
+                <h2>Explore Skin Concerns</h2>
+            
+                <div class="concern-category">
+                    <h3>Acne</h3>
+                    <p>Information about acne.</p>
+                    <div class="product-list" id="product-list"> </div>  </div>
+            
+                <div class="concern-category">
+                    <h3>Dryness</h3>
+                    <p>Information about dryness.</p>
+                    <div class="product-list" id="dryness-products"> </div>  </div>
+            
+            </section>
+            
+            <section id="product-categories">
+                <h2>Product Categories</h2>
+            
+                <div class="category">
+                    <h3>Cleansers</h3>
+                    <div class="product-list" id="cleanser-products"> </div>  </div>
+            
+            </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Skincare Guide</p>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 0) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+    
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+    
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+
+        //product 
+        
+
+        const products = [
+        {
+            image: "product1.jpg", // Replace with actual image URL
+            name: "Hydrating Cleanser",
+            description: "A gentle cleanser for dry skin.",
+            concern: "Dryness",
+            category: "Cleansers"
+        },
+        {
+            image: "product2.jpg", // Replace with actual image URL
+            name: "Acne Control Serum",
+            description: "Helps to reduce acne and blemishes.",
+            concern: "Acne",
+            category: "Serums"
+        },
+        {
+            image: "product3.jpg", // Replace with actual image URL
+            name: "Daily Moisturizer",
+            description: "Keeps skin hydrated all day long.",
+            concern: "Dryness",
+            category: "Moisturizers"
+        },
+        // Add more products here...
+    ];
+
+    // Function to display products
+    function displayProducts(productsToDisplay, containerId) {
+        const productList = document.getElementById(containerId);
+        productList.innerHTML = ""; // Clear existing products
+
+        productsToDisplay.forEach(product => {
+            const productDiv = document.createElement("div");
+            productDiv.classList.add("product");
+            productDiv.innerHTML = `
+                <img src="${product.image}" alt="${product.name}">
+                <h3>${product.name}</h3>
+                <p>${product.description}</p>
+                <button>Add to Cart</button>
+            `;
+            productList.appendChild(productDiv);
+        });
+    }
+
+    // Display initial products (e.g., all products or products for a specific concern)
+    displayProducts(products, "product-list"); // You'll need to call this function for each product list
+
+    // Example: Display products for "Dryness" concern
+    const drynessProducts = products.filter(product => product.concern === "Dryness");
+    displayProducts(drynessProducts, "dryness-products"); // Replace "dryness-products" with the correct ID
+
+    // Example: Display products for "Cleansers" category
+    const cleanserProducts = products.filter(product => product.category === "Cleansers");
+    displayProducts(cleanserProducts, "cleanser-products"); // Replace "cleanser-products" with the correct ID
+
+    </script>
+
+</body>
+</html>
